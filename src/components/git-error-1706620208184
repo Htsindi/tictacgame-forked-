@@ -1,0 +1,4 @@
+> git push -u origin main
+thread 'main' panicked at src/main.rs:36:10:
+Git remote helper server unix socket not found!: Os { code: 2, kind: NotFound, message: "No such file or directory" }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
