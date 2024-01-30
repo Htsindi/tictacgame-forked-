@@ -2,8 +2,9 @@ import { useState } from "react";
 
 export default function Player({ name, symbol }) {
   const [isEditing, setIsEditing] = useState(false);
-  const btnHandler = () => {
-    setIsEditing(True);
+  
+  function btnHandler () {
+    setIsEditing(true);
   };
 
   let playerName = <span className="player-name">{name}</span>;
