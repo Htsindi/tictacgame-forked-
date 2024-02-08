@@ -1,14 +1,14 @@
 import { useState } from "react";
 
-export default function Player({ name, symbol }) {
+export default function Player({ name, symbol, isActive }) {
   const [isEditing, setIsEditing] = useState(false);
-  
-  function btnHandler () {
+
+  function btnHandler() {
     setIsEditing(true);
-  };
+  }
 
   let playerName = <span className="player-name">{name}</span>;
- // let btnCaption = 'Edit';
+  // let btnCaption = 'Edit';
 
   if (isEditing) {
     playerName = <input type="text" required />;
@@ -16,11 +16,11 @@ export default function Player({ name, symbol }) {
   }
 
   return (
-    <li>
+    <li className={isActive ? "active" : undefined}>
       <span className="player">
         {playerName}
         <span className="player-symbol">{symbol}</span>
-        <button onClick={btnHandler}>{isEditing ? 'Save' : 'Edit'}</button>
+        <button onClick={btnHandler}>{isEditing ? "Save" : "Edit"}</button>
       </span>
     </li>
   );
