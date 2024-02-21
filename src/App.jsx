@@ -3,6 +3,14 @@ import { useState } from "react";
 import Player from "./components/Player.jsx";
 import Gameboard from "./components/Gameboard.jsx";
 import Log from "./components/Log.jsx";
+import WinningCombinations from "./components/WinningCombinations.jsx";
+
+//Moved from outside Gameboard
+const initialGameBoard = [
+  [null, null, null],
+  [null, null, null],
+  [null, null, null],
+];
 
 function deriveActivePlayer(gameTurns) {
   let currentPlayer = "X";
@@ -18,8 +26,22 @@ function App() {
   //We need to add a state for the players name and their symbol for both   player and Gameboard
   const [gameTurns, setGameTurns] = useState([]);
   //const [activePlayer, setActivePlayer] = useState("X");
+  //Winning logic can be handled from gameTurns
+  //const [hasWinner, setHasWinner] = useState(false);
+  for (const combination of WinningCombinations) {
+    console.log(combination);
+  }
 
   const activePlayer = deriveActivePlayer(gameTurns);
+  //Moved from Gameboard
+  let gameBoard = initialGameBoard;
+
+  for (const turn of turns) {
+    const { square, player } = turn;
+    const [row, col] = square;
+
+    gameBoard[row][col] = player;
+  }
 
   function handleSelectSquare(rowIndex, colIndex) {
     //setActivePlayer((curActivePlayer) => (curActivePlayer === "X" ? "O" : "X"));
