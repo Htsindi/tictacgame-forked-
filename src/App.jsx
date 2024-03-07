@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+//fULLY FUNCTIONAL GAME
 import Player from "./components/Player.jsx";
 import Gameboard from "./components/Gameboard.jsx";
 import Log from "./components/Log.jsx";
